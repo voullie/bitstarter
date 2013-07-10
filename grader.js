@@ -24,12 +24,14 @@ References:
 var fs = require('fs');
 var program = require('commander');
 var cheerio = require('cheerio');
+var rest = require('restler');
 var HTMLFILE_DEFAULT = "index.html";
 var CHECKSFILE_DEFAULT = "checks.json";
+var checksFile;
 
 var assertFileExists = function(infile) {
     var instr = infile.toString();
-    if(!fs.existsSync(instr)) {
+    if(!fs.existsSync(instr) && instr.substring(0, 4) !== 'http') {
         console.log("%s does not exist. Exiting.", instr);
         process.exit(1); // http://nodejs.org/api/process.html#process_process_exit_code
     }
@@ -37,15 +39,18 @@ var assertFileExists = function(infile) {
 };
 
 var cheerioHtmlFile = function(htmlfile) {
-    return cheerio.load(fs.readFileSync(htmlfile));
+//    return cheerio.load(fs.readFileSync(htmlfile));
+	return cheerio.load(htmlfile);
 };
 
 var loadChecks = function(checksfile) {
     return JSON.parse(fs.readFileSync(checksfile));
 };
 
-var checkHtmlFile = function(htmlfile, checksfile) {
-    $ = cheerioHtmlFile(htmlfile);
+var checkHtmlFile = function(htmlString, checksfile) {
+	
+    $ = cheerioHtmlFile(htmlString);
+
     var checks = loadChecks(checksfile).sort();
     var out = {};
     for(var ii in checks) {
@@ -61,14 +66,42 @@ var clone = function(fn) {
     return fn.bind({});
 };
 
+var completeCheck = function(htmlString)
+{
+	var checkJson = checkHtmlFile(htmlString, checksFile);
+	var outJson = JSON.stringify(checkJson, null, 4);
+	console.log(outJson);
+}
+
+var retrieveFile = function(file)
+{
+	if (file.substring(0, 4) === 'http')
+	{
+		var getRemoteFile = function(result, response) {
+	        if (result instanceof Error) {
+	            console.error('Error: ' + response.message);
+	        } else {
+	            //console.log(result);
+	            completeCheck(result);
+	        }
+	    };
+	    rest.get(file).on('complete', getRemoteFile);
+	}
+	else
+	{
+		//means local file
+		completeCheck(fs.readFileSync(file));
+	}
+}
+
 if(require.main == module) {
     program
         .option('-f, --file <html_file>', 'Path to index.html', clone(assertFileExists), HTMLFILE_DEFAULT)
         .option('-c, --checks <check_file>', 'Path to checks.json', clone(assertFileExists), CHECKSFILE_DEFAULT)
         .parse(process.argv);
-    var checkJson = checkHtmlFile(program.file, program.checks);
-    var outJson = JSON.stringify(checkJson, null, 4);
-    console.log(outJson);
+    checksFile = program.checks;
+    retrieveFile(program.file);
+    
 } else {
     exports.checkHtmlFile = checkHtmlFile;
 }
