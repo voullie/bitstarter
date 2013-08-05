@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>GSeManate</title>
+    <title>My First Bitstarter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!--     <link rel="stylesheet" href="/bootstrap/css/bootstrap-responsive.min.css" type="text/css"> -->
-	<link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-combined.no-icons.min.css">
+    <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-combined.no-icons.min.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
     <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fsocial-buttons.css">    
     <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fjquery.js"></script>
@@ -13,7 +12,6 @@
     <link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,300,400,600,700,800" 
           rel="stylesheet" type="text/css">
-	<!-- a comment -->
     <style type="text/css">
 
       /* Large desktop */
@@ -108,8 +106,7 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-<!--           <button type="button" class="btn btn-navbar" -->
-<!--                   data-toggle="collapse" data-target=".nav-collapse"> -->
+<!--           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> -->
 <!--             <span class="icon-bar"></span> -->
 <!--             <span class="icon-bar"></span> -->
 <!--             <span class="icon-bar"></span> -->
@@ -147,14 +144,14 @@
       </div>
       <div class="row-fluid pitch">
         <div class="span5 offset1 video">
-<!--           <img class="img-polaroid" src="http://placehold.it/480x300"> -->
-				<img class="img-polaroid" src="http://i.imgur.com/ikrH8ps.png" title="GSeManate logo" >
+          <img class="img-polaroid" src="http://i.imgur.com/ikrH8ps.png" title="GSeManate logo" alt="Placeholder" >
         </div>
 
         <!-- We define a new 'actions' div to contain statistics, order, and share buttons.-->
         <div class="span5 actions">
+          <div class="row-fluid">
           <div class="span8 offset2">
-            <div class="statistics">
+            <div class="row-fluid statistics">
               <div class="span4">
                 <!-- linediv-l and linediv-r give dividing lines that look
                 different in horizontal and vertical layouts, illustrating
@@ -170,11 +167,12 @@
               </div>
               <div class="span4">
                 <div class="linediv-r">
-                <h3>45</h3> <p>days left</p>
+                <h3>30</h3> <p>days left</p>
                 </div>
               </div>
             </div>
           </div>
+          <div class="row-fluid">
           <div class="span10 offset1">
             <!-- Bootstrap progress bar -->
             <!-- http://twitter.github.io/bootstrap/components.html#progress -->
@@ -183,17 +181,23 @@
               <div class="bar bar-warning" style="width: 100%;"></div>
             </div>
           </div>
+          </div>
+          <div class="row-fluid">
           <div class="span6 offset3 order">
             <!-- Standard Bootstrap button. -->
             <!-- http://twitter.github.io/bootstrap/base-css.html#buttons -->
             <button class="btn btn-success btn-large">Preorder</button>
           </div>
+          </div>
+          <div class="row-fluid">
           <div class="span8 offset2 social">
             <!-- Social buttons are not included in default Bootstrap. -->
             <!-- See: http://noizwaves.github.io/bootstrap-social-buttons -->
             <button class="btn btn-twitter"><i class="icon-twitter"></i> | Twitter</button>
             <button class="btn btn-facebook"><i class="icon-facebook"></i> | Facebook</button>
           </div>
+          </div>
+        </div>
         </div>
       </div>
 
@@ -202,7 +206,7 @@
       <!-- http://twitter.github.io/bootstrap/base-css.html#images -->
       <!-- http://placehold.it -->
       <div class="row-fluid section1">
-        <div class="span5 offset1 copy copy-right">
+        <div class="span5 offset1 asset">
           <p>
             Smart handheld devices have become a part of our day-to-day lives 
             and increasingly more of us have started to take for granted the 
@@ -231,6 +235,17 @@
         </div>
       </div>
 
+<!--       <div class="row-fluid section2"> -->
+<!--         <div class="span5 offset1 copy copy-right"> -->
+<!--           <p> -->
+<!--             blabla -->
+<!--           </p> -->
+<!--         </div> -->
+<!--         <div class="span5 asset"> -->
+<!--           <img class="img-polaroid" alt="Placeholder" src="My%20First%20Bitstarter_files/480x300.gif"> -->
+<!--         </div> -->
+<!--       </div> -->
+
       <!-- For the FAQ, we introduce a little bit of JS, using the accordion. -->
       <!-- This brings in jquery.js and bootstrap.js as dependencies. -->
       <!-- http://twitter.github.io/bootstrap/javascript.html#collapse -->
@@ -240,8 +255,7 @@
             <div class="accordion" id="accordion2">
               <div class="accordion-group">
                 <div class="accordion-heading">
-                  <a class="accordion-toggle" data-toggle="collapse"
-                     data-parent="#accordion2" href="#collapseOne">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
                     What platforms does the project target?
                   </a>
                 </div>
@@ -257,8 +271,7 @@
               </div>
               <div class="accordion-group">
                 <div class="accordion-heading">
-                  <a class="accordion-toggle" data-toggle="collapse"
-                     data-parent="#accordion2" href="#collapseTwo">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
                     Who is behind this project?
                   </a>
                 </div>
@@ -280,9 +293,10 @@
       <!-- http://creativecommons.org/licenses/ -->
       <div class="row-fluid footer">
         <div class="span12">
-          <p>This work is licensed to <a href="mailto:ulas.albayrak@gmail.com">Ulas A. Albayrak</a>.</p>
+          <p>This work is licensed to <a href="mailto:ulas.albayrak@gmail.com">Ulas A. Albayrak.</p>
         </div>
       </div>
     </div>
-  </body>
-</html>
+  
+
+</body></html>
